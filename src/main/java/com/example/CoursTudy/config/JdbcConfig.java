@@ -11,15 +11,15 @@ import javax.sql.DataSource;
 @Configuration
 public class JdbcConfig {
 
-    @Value("db.password")
+    @Value("${db.password}")
     private String password;
-    @Value("db.username")
+    @Value("${db.username}")
     private String username;
 
-    @Value("db.url")
+    @Value("${db.url}")
     private String url;
 
-    @Value("db.driver")
+    @Value("${db.driver}")
     private String driver;
 
     @Bean
