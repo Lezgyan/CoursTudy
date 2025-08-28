@@ -10,7 +10,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface CourseMapper {
 
-//    CourseUpdate toCourseUpdate(Course course);
+    CourseUpdate toCourseUpdate(Course course);
 
     Course toCourse(CourseUpdate courseUpdate);
 

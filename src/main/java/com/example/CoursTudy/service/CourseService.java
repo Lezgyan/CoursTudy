@@ -4,11 +4,12 @@ import com.example.CoursTudy.dto.CourseUpdate;
 import com.example.CoursTudy.entity.Course;
 import com.example.CoursTudy.mapper.CourseMapper;
 import com.example.CoursTudy.repository.CourseRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.constraints.Pattern;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service
@@ -27,8 +28,8 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
-    public Course getCourseById(UUID uuid){
-        return courseRepository.findById(uuid).orElse(null);
+    public Course  getCourseById(UUID uuid){
+        return courseRepository.findById(uuid).orElseThrow();
     }
 
     public void deleteById(UUID uuid){

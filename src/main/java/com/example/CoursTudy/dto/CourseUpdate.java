@@ -1,15 +1,28 @@
 package com.example.CoursTudy.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.UUID;
 
 
 
 public class CourseUpdate {
+
+
+    private UUID categoryId;
+
+    @NotBlank(message = "Course doesn't have a title")
+    private String title;
+
+    @NotBlank(message = "У курса отсутствует описание")
+    private String description;
+
+    private String suggestedDuration;
+
+
+    private UUID createBy;
+
+    private UUID updateBy;
 
     public UUID getUpdateBy() {
         return updateBy;
@@ -59,15 +72,4 @@ public class CourseUpdate {
         this.categoryId = categoryId;
     }
 
-    private UUID categoryId;
-
-    private String title;
-
-    private String description;
-
-    private String suggestedDuration;
-
-    private UUID createBy;
-
-    private UUID updateBy;
 }
