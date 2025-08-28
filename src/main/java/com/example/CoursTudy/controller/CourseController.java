@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
 
+import static java.util.Objects.requireNonNullElse;
+
 @RestController
 @RequestMapping("/course")
 public class CourseController {
@@ -40,6 +42,11 @@ public class CourseController {
     @PostMapping
     public void update(@Valid @RequestBody CourseUpdate courseUpdate){
         courseService.save(courseUpdate);
+    }
+
+    @GetMapping("/filter")
+    public List<Course> getCourseStartWithPrefix(@RequestParam(name = "titlePrefix", required = false) String prefix){
+        return courseService.getCourseStartWith(requireNonNullElse(prefix, ""));
     }
 
     @ExceptionHandler(NoSuchElementException.class)

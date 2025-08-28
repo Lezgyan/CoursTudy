@@ -40,4 +40,8 @@ public class CourseService {
 
         courseRepository.save(courseMapper.toCourse(courseUpdate));
     }
+
+    public List<Course> getCourseStartWith(String prefix){
+        return courseRepository.findByTitleStartingWith(prefix);
+    }
 }
